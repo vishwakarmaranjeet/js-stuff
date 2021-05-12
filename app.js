@@ -113,3 +113,53 @@ function setGlobalUserData(isUserLoggedIn) {
   window.globalUserData = globalUserData;
 }
 setGlobalUserData(isUserLoggedIn);
+
+const tutorials = [
+  {
+    id: "1",
+    title: "JavaScript",
+    href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+  },
+  {
+    id: "2",
+    title: "ReactJs",
+    href: "https://reactjs.org/",
+  },
+  {
+    id: "3",
+    title: "VueJs",
+    href: "https://vuejs.org/",
+  },
+];
+
+const printTutorials = (data) => {
+  var ul = document.getElementById("tutorials");
+  if (typeof data !== "undefined" && data !== null) {
+    data.map((item) => {
+      var li = document.createElement("li");
+      var a = document.createElement("a");
+      var title = document.createTextNode(item.title);
+      a.append(title);
+      a.href = item.href;
+      var list = ul.appendChild(li);
+      list.appendChild(a);
+    });
+  } else {
+    console.log("Argument is missing");
+  }
+};
+
+printTutorials(tutorials);
+
+let name = "Amit Verma";
+const getFirstName = (data) => {
+  if (typeof data !== "undefined" && data !== null) {
+    let userFirstName = data.split(" ")[0];
+    return userFirstName;
+  } else {
+    console.log("error occured");
+  }
+};
+
+let firstName = getFirstName(name);
+console.log(firstName);

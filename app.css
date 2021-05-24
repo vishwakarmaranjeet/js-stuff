@@ -150,6 +150,39 @@ template {
 .txt_center {
   text-align: center;
 }
+body {
+  background-color: #f1c40f;
+}
 a {
   text-decoration: none;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+ul li {
+  list-style: none;
+}
+.flex_container {
+  display: flex;
+  max-width: 1200px;
+  margin: auto;
+  flex-wrap: wrap;
+}
+.flex_container .flex_item {
+  width: 130px;
+  flex-basis: 130px;
+  flex-grow: 1;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 25px;
+  margin: 12px;
+  text-align: center;
+  background-color: #eee;
+  cursor: pointer;
+}
+.flex_container .flex_item a {
+  font-weight: 700;
+  font-size: 16px;
+  color: #000;
 }

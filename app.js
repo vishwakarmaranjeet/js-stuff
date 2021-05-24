@@ -130,6 +130,41 @@ const tutorials = [
     title: "VueJs",
     href: "https://vuejs.org/",
   },
+  {
+    id: "4",
+    title: "Svelte",
+    href: "https://svelte.dev/",
+  },
+  {
+    id: "5",
+    title: "Angular",
+    href: "https://angular.io/",
+  },
+  {
+    id: "6",
+    title: "NodeJs",
+    href: "https://nodejs.org/en/",
+  },
+  {
+    id: "7",
+    title: "Express",
+    href: "http://expressjs.com/",
+  },
+  {
+    id: "8",
+    title: "MongoDB",
+    href: "https://www.mongodb.com/",
+  },
+  {
+    id: "9",
+    title: "React Native",
+    href: "https://reactnative.dev/",
+  },
+  {
+    id: "10",
+    title: "Flutter",
+    href: "https://flutter.dev/",
+  },
 ];
 
 const printTutorials = (data) => {
@@ -137,6 +172,7 @@ const printTutorials = (data) => {
   if (typeof data !== "undefined" && data !== null) {
     data.map((item) => {
       var li = document.createElement("li");
+      li.className = "flex_item";
       var a = document.createElement("a");
       var title = document.createTextNode(item.title);
       a.append(title);
@@ -163,3 +199,8 @@ const getFirstName = (data) => {
 
 let firstName = getFirstName(name);
 console.log(firstName);
+
+let arrList = [1, 2, 3, 4, 5];
+let slicedArray = arrList.slice();
+
+console.log(slicedArray);

@@ -28,7 +28,6 @@ a {
 abbr[title] {
   border-bottom: none; /* 1 */
   text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
 }
 b,
 strong {
@@ -180,13 +179,13 @@ ul li {
 }
 .flex_container {
   display: flex;
-  max-width: 1200px;
+  width: 100%;
   margin: auto;
   flex-wrap: wrap;
 }
 .flex_container .flex_item {
-  width: 130px;
-  flex-basis: 130px;
+  width: 150px;
+  flex-basis: 150px;
   flex-grow: 1;
   border: 1px solid #eee;
   border-radius: 4px;
@@ -200,4 +199,20 @@ ul li {
   font-weight: 700;
   font-size: 16px;
   color: #000;
+}
+.heart_shape {
+    background: #f9e1ea none repeat scroll 0 0;
+    border-radius: 50%;
+    display: block;
+    height: 80px;
+    margin: 10px auto 0;
+    text-align: center;
+    width: 80px;
+}
+.heart_shape::before{
+	  color: #f3166e;
+    content: "❤";
+    font-size: 50px;
+    position: relative;
+    top: 15px;
 }

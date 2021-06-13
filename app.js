@@ -204,3 +204,31 @@ let arrList = [1, 2, 3, 4, 5];
 let slicedArray = arrList.slice();
 
 console.log(slicedArray);
+
+const arrItems = [3, 1, 2, 2];
+
+const area = function (radius) {
+  return Math.PI * radius * radius;
+}
+
+const circumference = function (radius) {
+  return 2 * Math.PI * radius;
+}
+
+const diameter = function (radius) {
+  return 2 * radius;
+}
+
+const calculate = function (arr, logic) {
+  const output = [];
+  const arrlength = arr.length;
+  for (let i = 0; i < arrlength; i++) {
+    output.push(logic(arr[i]));
+  }
+  return output;
+}
+
+console.log(calculate(arrItems, area));
+console.log(calculate(arrItems, circumference));
+console.log(calculate(arrItems, diameter));
+

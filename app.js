@@ -254,3 +254,77 @@ printFullName.apply(userObj2, ['Lucknow']);
 // Bind method don't invoke immidiately we can store it in a variable & invoke later
 let printName = printFullName.bind(userObj1, 'Mumbai');
 printName();
+
+// Map, Filter, Reduce function example.
+const users = [
+  {firstName: "Amit", lastName: "Vishwas", age: 30 },
+  {firstName: "Sumit", lastName: "Gandhi", age: 25 },
+  {firstName: "Vinit", lastName: "Shah", age: 32 },
+  {firstName: "Rahul", lastName: "Sinha", age:30},
+];
+
+// Map
+// [FirstName Lastname, FirstName LastName]
+const mapOutPut = users.map(x => x.firstName + " "+ x.lastName);
+console.log(mapOutPut);
+
+// Filter
+// Filter if age is > 25
+const filterOutPut = users.filter(x => x.age > 25);
+console.log(filterOutPut);
+
+// Filter user if age is 25 along with firstname
+const filterOutPut1 = users.filter(x => x.age > 25).map(x => x.firstName);
+console.log(filterOutPut1);
+
+// Reduce takes two arguments function & initiale value
+// {30:2, 25:1, 32:1}
+const reduceOutPut = users.reduce((acc, curr) => {
+  if (acc[curr.age]) {
+    acc[curr.age] = ++acc[curr.age];
+  } else {
+    acc[curr.age] = 1;
+  }
+  return acc;
+}, {})
+
+console.log(reduceOutPut);
+
+const reduceOutPut1 = users.reduce((acc, curr) => {
+  if (curr.age > 25) {
+    acc.push(curr.firstName);
+    return acc;
+  } else {
+    return acc;
+  }
+}, []);
+
+console.log(reduceOutPut1);
+
+// Higher order functions
+const arrItems = [3, 1, 2, 2];
+
+const area = function (radius) {
+  return Math.PI * radius * radius;
+};
+
+const circumference = function (radius) {
+  return 2 * Math.PI * radius;
+};
+
+const diameter = function (radius) {
+  return 2 * radius;
+};
+
+const calculate = function (arr, logic) {
+  const output = [];
+  const arrlength = arr.length;
+  for (let i = 0; i < arrlength; i++) {
+    output.push(logic(arr[i]));
+  }
+  return output;
+};
+
+console.log(calculate(arrItems, area));
+console.log(calculate(arrItems, circumference));
+console.log(calculate(arrItems, diameter));

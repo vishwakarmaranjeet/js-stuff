@@ -232,3 +232,25 @@ console.log(calculate(arrItems, area));
 console.log(calculate(arrItems, circumference));
 console.log(calculate(arrItems, diameter));
 
+// Example of call, apply, & bind methods
+let userObj1 = {
+  name: 'Amit',
+  lastName:'Vishwas'
+}
+let userObj2 = {
+  name: 'Rahul',
+  lastName:'Agrawal'
+}
+// Printfullname function
+function printFullName(city){
+  console.log(`${this.name} ${this.lastName} from ${city}`);
+}
+// Function borrowing
+// Call method we pass arguments as comma seprated.
+printFullName.call(userObj1, 'Mumbai');
+// Apply method we pass arguments in array.
+printFullName.apply(userObj2, ['Lucknow']);
+
+// Bind method don't invoke immidiately we can store it in a variable & invoke later
+let printName = printFullName.bind(userObj1, 'Mumbai');
+printName();

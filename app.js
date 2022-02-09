@@ -194,3 +194,38 @@ const getAgeWithFirstName = users.reduce((acc, curr) => {
 
 console.log('FIRST NAME REDUCE :', getAgeWithFirstName);
 // GET FIRSTNAME IF AGE > 25
+
+// OBJECT VALUES / KEYS / ENTRIES EXAMPLE
+let arrObj = {
+  frontend: 'JavaScript',
+  backend: 'Java',
+};
+
+console.log('OBJECT KEYS', Object.keys(arrObj));
+console.log('OBJECT VALUES', Object.values(arrObj));
+console.log('OBJECT ENTRIES', Object.entries(arrObj));
+// OBJECT VALUES / KEYS / ENTRIES EXAMPLE
+
+// FLAT ARRAY USING FLAT METHOD
+let arrFlat = [1, 2, [3, [4, [5, [6]]]]];
+console.log('FLAT ARRAY :', arrFlat.flat(3));
+console.log('FLAT ARRAY INFINITY:', arrFlat.flat(4));
+// FLAT ARRAY USING FLAT METHOD
+
+// ARRAY SLICE METHOD
+let arrSlice = ['HTML', 'CSS', 'JAVASCRIPT', 'REACTJS', 'ANGULAR'];
+console.log('ARRAY SLICE :', arrSlice.slice(1, 3));
+// ARRAY SLICE METHOD
+
+// ARRAY SPLICE METHOD
+let arrSplice = ['HTML', 'CSS', 'JAVASCRIPT', 'REACTJS', 'ANGULAR'];
+let addSpliceItem = arrSplice.splice(5, 0, 'NEXTJS', 'VUE');
+console.log('ADD ITEM USING SPLICE:', arrSplice);
+console.log(addSpliceItem);
+
+let arrSpliceRemove = ['HTML', 'CSS', 'JAVASCRIPT', 'REACTJS', 'ANGULAR'];
+let removedSpliceItem = arrSpliceRemove.splice(4, 1);
+console.log('REMOVE ITEM USING SPLICE:', arrSpliceRemove);
+console.log(removedSpliceItem);
+
+// ARRAY SPLICE METHOD

@@ -1,3 +1,9 @@
+const customConsole = (message, color, fontSize) => {
+  if (message) {
+    return console.log(`%c${message}`, `color:${color}; font-size:${fontSize}`);
+  }
+};
+
 // FIND THE MAX VALUE IN OBJECT BY OBJECT KEY
 const people = [
   { name: 'Amit', age: 20 },
@@ -215,6 +221,27 @@ console.log('FLAT ARRAY INFINITY:', arrFlat.flat(4));
 // ARRAY SLICE METHOD
 let arrSlice = ['HTML', 'CSS', 'JAVASCRIPT', 'REACTJS', 'ANGULAR'];
 console.log('ARRAY SLICE :', arrSlice.slice(1, 3));
+
+const getCouponCode = (str) => {
+  let couponStr = str;
+  const getCode = (str, startIndex, endIndex) => {
+    let result = str.slice(startIndex, endIndex).join('');
+    return result;
+  };
+
+  if (couponStr.length === 16) {
+    let arrStr = couponStr.split('');
+    let strOne = getCode(arrStr, 0, 4);
+    let strTwo = getCode(arrStr, 4, 8);
+    let strThree = getCode(arrStr, 8, 12);
+    let strFour = getCode(arrStr, 12, 16);
+    let couponCodeText = `${strOne} ${strTwo} ${strThree} ${strFour}`;
+    customConsole(couponCodeText.toUpperCase(), 'green', '16px');
+  } else {
+    customConsole('Coupon Code should not more than 16 Characters');
+  }
+};
+getCouponCode('abcdfghikolplfgh');
 // ARRAY SLICE METHOD
 
 // ARRAY SPLICE METHOD
@@ -227,5 +254,95 @@ let arrSpliceRemove = ['HTML', 'CSS', 'JAVASCRIPT', 'REACTJS', 'ANGULAR'];
 let removedSpliceItem = arrSpliceRemove.splice(4, 1);
 console.log('REMOVE ITEM USING SPLICE:', arrSpliceRemove);
 console.log(removedSpliceItem);
-
 // ARRAY SPLICE METHOD
+
+// JSON STRINGIFY
+let jsonStringify = {
+  name: 'Rahul',
+  location: 'Mumbai',
+  designation: 'Software Engineer',
+};
+console.log(JSON.stringify(jsonStringify));
+// JSON STRINGIFY
+
+// PROMISES & ASYNC AWAIT FUNCTIONS
+const learnJavaScript = () => {
+  let isLearingCompleted = false;
+  return new Promise((resolve, reject) => {
+    if (isLearingCompleted) {
+      setTimeout(() => {
+        resolve('Congratulations you have completed learing JavaScript');
+      }, 2000);
+    } else {
+      reject('Sorry you have failed learning JavaScript 😔');
+    }
+  });
+};
+
+const getRewards = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve('You will be rewarded with some surprise gift 😊');
+    }, 1000);
+  });
+};
+
+// PROMISE EXAMPLE
+learnJavaScript()
+  .then((result) => {
+    console.log(result);
+    getRewards().then((result) => {
+      console.log(result);
+    });
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+// ASYNC AWAIT EXAMPLE
+const finalResult = async () => {
+  try {
+    const learning = await learnJavaScript();
+    const gift = await getRewards();
+    customConsole(learning, 'green', '18px');
+    customConsole(gift, 'green', '18px');
+  } catch (error) {
+    customConsole(error, 'red', '18px');
+  }
+};
+
+finalResult();
+// PROMISES & ASYNC AWAIT FUNCTIONS
+
+// ARRAY & OBJECT DESCTRUCTURING
+let arrDes = ['Mumbai', 'Pune', 'Banglore', 'Chennai'];
+let [mumbai, pune, banglore, chennai] = arrDes;
+customConsole(`ARRAY DESCTRUCTURING: ${mumbai}`);
+
+let arrDesObj = {
+  Mumbai: 'Mumbai',
+  Pune: 'Pune',
+  Banglore: 'Banglore',
+  Chennai: 'Chennai',
+};
+
+let { mumbaicity, punecity, banglorecity, chennaicity } = arrDesObj;
+customConsole(`OBJECT DESCTRUCTURING: ${mumbai}`);
+// ARRAY & OBJECT DESCTRUCTURING
+
+// HIGHER ORDER FUNCTION
+const sum = (n1, n2) => {
+  return n1 + n2;
+};
+const multiply = (n1, n2) => {
+  return n1 * n2;
+};
+
+const calculatHoc = (operator, num1, num2) => {
+  let total = operator(num1, num2);
+  return total;
+};
+
+customConsole(calculatHoc(sum, 20, 30));
+customConsole(calculatHoc(multiply, 2, 2));
+// HIGHER ORDER FUNCTION

@@ -361,3 +361,18 @@ let forEachNumber = numbers.forEach((num) => {
 });
 customConsole('FOR EACH ITERATION', forEachNumber);
 // FOREACH & MAP METHOD
+
+// FOR OF & FOR IN LOOP
+// First, the for...in can loop through both Arrays and Objects while the for...of can only loop through Arrays, Map, Set, arguments object.
+const forOfObj = {
+  development: 'JavaScript',
+  design: 'Figma',
+};
+for (let value in forOfObj) {
+  customConsole(`FOR IN EXAMPLE, ${value}`);
+}
+const forInArr = [1, 2, 3, 4];
+for (let value of forInArr) {
+  customConsole(`FOR OF EXAMPLE, ${value}`);
+}
+// FOR OF & FOR IN LOOP

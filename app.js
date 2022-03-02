@@ -244,7 +244,9 @@ const getCouponCode = (str) => {
 getCouponCode('abcdfghikolplfgh');
 // ARRAY SLICE METHOD
 
-// ARRAY SPLICE METHOD
+// ARRAY SPLICE & SPLICE METHOD
+// The splice() method changes the original array and slice() method doesn’t change the original array
+
 let arrSplice = ['HTML', 'CSS', 'JAVASCRIPT', 'REACTJS', 'ANGULAR'];
 let addSpliceItem = arrSplice.splice(5, 0, 'NEXTJS', 'VUE');
 console.log('ADD ITEM USING SPLICE:', arrSplice);
@@ -254,6 +256,7 @@ let arrSpliceRemove = ['HTML', 'CSS', 'JAVASCRIPT', 'REACTJS', 'ANGULAR'];
 let removedSpliceItem = arrSpliceRemove.splice(4, 1);
 console.log('REMOVE ITEM USING SPLICE:', arrSpliceRemove);
 console.log(removedSpliceItem);
+
 // ARRAY SPLICE METHOD
 
 // JSON STRINGIFY
@@ -267,7 +270,7 @@ console.log(JSON.stringify(jsonStringify));
 
 // PROMISES & ASYNC AWAIT FUNCTIONS
 const learnJavaScript = () => {
-  let isLearingCompleted = false;
+  let isLearingCompleted = true;
   return new Promise((resolve, reject) => {
     if (isLearingCompleted) {
       setTimeout(() => {
@@ -346,3 +349,15 @@ const calculatHoc = (operator, num1, num2) => {
 customConsole(calculatHoc(sum, 20, 30));
 customConsole(calculatHoc(multiply, 2, 2));
 // HIGHER ORDER FUNCTION
+
+// FOREACH & MAP METHOD
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let mapNumber = numbers.map((num) => {
+  return num * 2;
+});
+customConsole('MAP ITERATION', mapNumber);
+let forEachNumber = numbers.forEach((num) => {
+  return num * 2;
+});
+customConsole('FOR EACH ITERATION', forEachNumber);
+// FOREACH & MAP METHOD

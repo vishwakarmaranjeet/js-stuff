@@ -376,3 +376,34 @@ for (let value of forInArr) {
   customConsole(`FOR OF EXAMPLE, ${value}`);
 }
 // FOR OF & FOR IN LOOP
+
+// REMOVING DUPLICATES ELEMEMETS FROM ARRAY
+const removeDuplicateElem = [
+  'JavaScript',
+  'ReactJs',
+  'AngularJs',
+  'VueJs',
+  'HTML',
+  'CSS',
+  'JavaScript',
+  'ReactJs',
+];
+// USING FILTER METHOD
+let removedElem = removeDuplicateElem.filter((data, index) => {
+  return removeDuplicateElem.indexOf(data) === index;
+});
+console.log('REMOVED DUPLICATE ELEMENT USING FILTER METHOD:', removedElem);
+
+// USING SET METHOD
+let removeEleSet = [...new Set(removeDuplicateElem)];
+console.log('REMOVED DUPLICATE ELEMEMETS USING SET METHOD:', removeEleSet);
+
+// USING FOREACH
+let uniqeElem = [];
+removeDuplicateElem.forEach((ele) => {
+  if (!uniqeElem.includes(ele)) {
+    uniqeElem.push(ele);
+  }
+});
+console.log('REMOVED DUPLICATE ELEMEMETS USING FOREACH:', uniqeElem);
+// REMOVING DUPLICATES ELEMEMETS FROM ARRAY

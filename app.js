@@ -407,3 +407,93 @@ removeDuplicateElem.forEach((ele) => {
 });
 console.log('REMOVED DUPLICATE ELEMEMETS USING FOREACH:', uniqeElem);
 // REMOVING DUPLICATES ELEMEMETS FROM ARRAY
+
+// SORT ARRAY ELEMEMETS
+let sortArr = [4,3,2,1];
+let sortedArr = sortArr.sort((a, b) => a - b);
+console.log(sortedArr);
+
+// MAP & FILTER
+const isPalindrome = (str) => {
+  let _str = str;
+  let splitString = _str.split('').reverse().join('');
+  if (_str === splitString) {
+    console.log('Palindrome');
+  } else { 
+    console.log('Not palindrome');
+  }
+}
+console.log(isPalindrome('civic'))
+
+// FIND THE DUPLICATE ELEMENENT IN ARRAY & COUNTS
+
+// SOLUTION 1 USING MAP METHOD
+let counts = {};
+const duplicateArr = ['a', 'b', 'c', 'a', 'b', 'b', 'c'];
+duplicateArr.map((x) => { counts[x] = (counts[x] || 0) + 1 });
+console.log('[TOTAL ELEMENTS IN ARRAY]:', counts);
+
+// SOLUTION 2 USING REDUCE METHOD
+let duplicateEle = duplicateArr.reduce((prev, cur) => { 
+  prev[cur] = (prev[cur] || 0 ) + 1;
+  return prev
+}, {})
+
+console.log(duplicateEle);
+
+
+// SOLUTION 3 USING REDUCE METHOD
+let duplicateEle1 = duplicateArr.reduce((prev, cur) => ({ 
+  ...prev,
+  [cur]:(prev[cur] || 0) + 1
+}), {});
+
+console.log(duplicateEle1);
+
+// EXAMPLE OF RECURSIVE FUNCTION
+// Recursion is a process of calling itself. A function that calls itself is called a recursive function.
+// A recursive function always has a condition to stop calling itself. Otherwise, it will call itself indefinitely.
+function PrintNumbers(start, end){
+  console.log(start);
+    if(start < end){
+        PrintNumbers((start + 1), end);
+    }
+}
+PrintNumbers(1, 5); 
+
+function log(num){
+  if(num > 5){
+      return;
+  }
+  console.log(num);
+  log(num + 1);
+}
+
+log(1);
+
+// EXAMPLE OF RECURSIVE FUNCTION
+
+// EXAMPLE OF CURRYING FUNCTION
+// INFINITE CURRYING 
+function sumNumber(a) { 
+  return function (b) { 
+    if (b) return sumNumber(a + b); 
+    return a;
+  }
+}
+console.log('[SUM OF NUMBER]', sumNumber(1)(2)(3)(6)());
+
+const userInfoCurr = {
+  name: 'Ranjeet',
+  location: 'Mumbai',
+}
+
+function getUserInfo(obj) { 
+  return function (info) {
+    return obj[info];
+  }
+}
+
+let details = getUserInfo(userInfoCurr);
+console.log(details('location'));
+// EXAMPLE OF CURRYING FUNCTION

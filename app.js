@@ -441,7 +441,6 @@ let duplicateEle = duplicateArr.reduce((prev, cur) => {
 
 console.log(duplicateEle);
 
-
 // SOLUTION 3 USING REDUCE METHOD
 let duplicateEle1 = duplicateArr.reduce((prev, cur) => ({ 
   ...prev,
@@ -497,3 +496,80 @@ function getUserInfo(obj) {
 let details = getUserInfo(userInfoCurr);
 console.log(details('location'));
 // EXAMPLE OF CURRYING FUNCTION
+
+// MEMOISE
+// Memoization is an optimization technique where expensive function calls are cached
+// such that the result can be immediately returned the next time the
+// function is called with the same arguments
+
+// SCOPE & SCOPE CHAIN
+
+// WHAT IS SCOPE
+// Scope in JavaScript refers to accessbility or visibility of variables. That is which part of
+// program have access to the variable or where the variable is visible
+
+// WHY IS SCOPE IMPORTANT
+// The main benefit of scope is security, That is, the variable can be accessed from only
+// a certain area of the program. Using scope, we can we can avoid unintended modifications to the variables from other parts of the program.
+
+// The scope also reduces the namespace collisions.
+// That is, we can use the same variable names in different scopes.
+
+// TYPES OF SCOPE
+// There are three types of scope in JavaScript
+// 1. Global Scope
+// 2. Function Scope
+// 3. Block Scope
+
+// GLOBAL SCOPE
+var greeting = 'Global Hello World';
+function greet() { 
+  console.log('GLOBAL SCOPE VARIABLE:', greeting);
+}
+// Prints 'Hello World'
+greet();
+
+// LOCAL SCOPE OR FUNCTION SCOPE
+function greet1() { 
+  var greeting = 'Local Hello World';
+  console.log(greeting);
+}
+// Print 'Hello World'
+greet1();
+// Uncaught ReferenceError: greeting is not defined
+console.log(greeting)
+
+// BLOCK SCOPE
+{ 
+  let greeting = 'Block Hello World';
+  var lang = 'English';
+  console.log(greeting);
+}
+// Prints 'English'
+console.log(lang);
+// Uncaught ReferenceError: greeting is not defined
+console.log(greeting);
+
+// SCOPE CHAIN
+// When a variable is used in JavaScript, the JavaScript engine will try to find the variable value in the current scope
+// If it could not find the variable, it  will look into the outer scope  and will continue to do so until it finds the variable or reaches global scope.
+
+let foo = 'foo';
+function bar() {
+  let baz = 'baz';
+  // Prints 'baz'
+  console.log(baz);
+  // Prints 'foo'
+  console.log(foo);
+  number = 42;
+  console.log(number);  // Prints 42
+}
+bar();
+
+// When the function bar() is executed, the JavaScript engine looks for the baz variable and finds it in the current scope.
+// Next, it looks for foo variable in the current scope and it can’t find it there, so it looks for the variable in outer scope and finds it there(i.e global scope).
+
+// After that, we assign 42 to the number variable, so the JavaScript engine looks for the number variable in the current scope and after that in the outer scope.
+// If the script is not in strict mode, the engine will create a new variable named number and assign 42 to it or return an error (if not in strict mode).
+
+// SCOPE & SCOPE CHAIN

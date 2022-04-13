@@ -573,3 +573,113 @@ bar();
 // If the script is not in strict mode, the engine will create a new variable named number and assign 42 to it or return an error (if not in strict mode).
 
 // SCOPE & SCOPE CHAIN
+
+// COPYING OBJECTS
+
+// const objCopy = {
+//   name: 'ABC',
+//   location:'Mumbai'
+// }
+// let objCopy2 = objCopy;
+// objCopy2.name = 'DFC';
+
+// console.log(objCopy.name);
+// console.log(objCopy2.name);
+
+const objCopy = {
+  name: 'ABC',
+  location:'Mumbai'
+}
+
+let objCopy2 = {...objCopy}
+objCopy2.name = 'xyz';
+
+// let objCopy2 = Object.assign({}, objCopy)
+// objCopy2.name = 'xyz';
+
+console.log(objCopy.name);
+console.log(objCopy2.name);
+
+// COPYING NESTED OBJECT
+const nestedObj = {
+  address: {
+    phone: 1234,
+  }
+}
+// It will replace the phone value from both the object
+// let nestedObj2 = { ...nestedObj};
+// nestedObj2.address.phone = 45678;
+
+// It will not replace the value from original object
+// let nestedObj2 = { address: {...nestedObj}};
+// nestedObj2.address.phone = 45678;
+
+// We can copy nested deep object using JSON.stringify
+let nestedObj2 = JSON.parse(JSON.stringify(nestedObj));
+nestedObj2.address.phone = 4567
+
+// function cloneObject(obj) {
+//   var clone = {};
+//   for(var i in obj) {
+//       if(obj[i] != null && typeof(obj[i])=="object")
+//           clone[i] = cloneObject(obj[i]);
+//       else
+//       clone[i] = obj[i];
+//   }
+//   return clone;
+// }
+
+console.log(nestedObj.address.phone);
+console.log(nestedObj2.address.phone);
+
+
+let arrData = [1, 2, 3, 4, 5, 7, 9];
+
+// Find large number
+// function largeNum(x) {
+//   let sum = 0;
+//   for (let i = 0; i < x.length; i++) {
+//     if (sum < x[i]) {
+//       sum = x[i];
+//     }
+//   }
+//   return sum;
+// }
+
+// Total of array values
+// function arrayTotal(arr) {
+//   let total = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     total += arr[i];
+//   }
+//   return total;
+// }
+
+// let newArrData = arrData.map((x) => x + x);
+// let newArrData = arrData.filter(x => x > 2);
+
+// Sum of array values
+// let newArrData = arrData.reduce((acc, curr) => {
+//   return acc + curr
+// }, 0)
+
+// Largest value in array
+// let largeNumber = arrData.reduce((acc, curr) => {
+//   return acc > curr ? acc : curr;
+// }, 0)
+// console.log(newArrData)
+// console.log(arrayTotal(arrData))
+
+const languageObj = {
+  language2: {
+    name: 'PHP',
+    age:20,
+  },
+  language3: {
+    name: 'HTML',
+    age: 30,
+  }
+}
+
+res = Object.keys(languageObj).reduce((r,k) => Object.keys(languageObj[k]).reduce((o,p) => (o[p] = o[p] + languageObj[k][p] || languageObj[k][p], o), r), {});
+console.log(res);
